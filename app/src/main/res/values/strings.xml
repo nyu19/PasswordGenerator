@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Password Generator</string>
+    <string name="passFieldHint">Copy From Here</string>
+</resources>
