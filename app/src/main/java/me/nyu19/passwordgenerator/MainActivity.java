@@ -2,6 +2,8 @@ package me.nyu19.passwordgenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         }catch (NullPointerException nl){
             Toast.makeText(this,"Please select atleast 1 option",Toast.LENGTH_SHORT).show();
         }
+    }
+    public void copyToClipboard(View v){
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clipData = ClipData.newPlainText("nyuPasswordGen",outputField.getText());
+        clipboard.setPrimaryClip(clipData);
+        Toast.makeText(this,"Copied to Clipboard!",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
